@@ -66,6 +66,7 @@ form .categories {
 	justify-content: center;
 	width: 300px;
 	height: 4em;
+	z-index: 1;
 }
 .products-list .title h2 {
 	margin: 0;
