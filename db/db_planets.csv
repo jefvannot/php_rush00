@@ -1,0 +1,8 @@
+id;nom;genre;location;taille;poids;couleur;image;prix
+1;terre;f;systeme solaire;6 371 km;5;972 × 10^24 kg;bleue;./img/terre.jpg;45K
+2;jupiter;m;systeme solaire;69 911 km;1;898 × 10^27 kg;beige;./img/jupiter.jpg;90K
+3;jupiter;m;systeme solaire;69 911 km;1;898 × 10^27 kg;beige;./img/jupiter.jpg;90K
+4;jupiter;m;systeme solaire;69 911 km;1;898 × 10^27 kg;beige;./img/jupiter.jpg;90K
+5;terre;f;systeme solaire;6 371 km;5;972 × 10^24 kg;bleue;./img/terre.jpg;45K
+6;jupiter;m;systeme solaire;69 911 km;1;898 × 10^27 kg;beige;./img/jupiter.jpg;90K
+7;jupiter;m;systeme solaire;69 911 km;1;898 × 10^27 kg;beige;./img/jupiter.jpg;90K
