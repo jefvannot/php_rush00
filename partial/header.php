@@ -1,4 +1,3 @@
-<?php include('head.php'); ?>
 <header>
     <div class="logo">
         <a href="index.php"><img src="img/planet-logo.png" alt=""></a>

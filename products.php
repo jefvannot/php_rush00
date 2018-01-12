@@ -12,18 +12,24 @@ include('partial/header.php');
     $unserialized = unserialize(file_get_contents($file));
     ?>
 
-    <div>
-      <p>Catégories :</p>
+    <div class="filter_box">
+      <h2>Quelle planète choisir ?</h2>
       <form method='post' action='check-box-boutique.php'>
+        <div class="categories">
+           <?php
+           foreach ($unserialized as $k => $v)
+           {
+            echo "<div class='title'>";
+            echo "<h4>".$k."</h4>";
+            echo "<hr>";
+            foreach ($v as $elem)
+              echo "<div class='check'><input type='checkbox' name='".$elem."' checked='checked'><p>".$elem."</p></div>";
+            echo "</div>";
 
-        <?php
-        foreach ($unserialized as $key=>$value)
-        {
-          foreach ($value as $elem)
-            echo "<input type='checkbox' name='".$elem."' checked='checked'> ".$elem."<br/>";
-        } 
+          } 
         ?>
-        <input type='submit' name = 'submit' value='Valider' />
+        </div>
+        <input type='submit' name = 'submit' value='Filtrer' />
       </form>
     </div>
 

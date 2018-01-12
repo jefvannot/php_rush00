@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include("install.php");
+include("install.php");
 
 include('partial/header.php');
 ?>
