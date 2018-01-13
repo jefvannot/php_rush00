@@ -13,14 +13,15 @@
     <div class="container">
         <div class="log-box">
         <h1>Inscription</h1>
-        <form action="signup_check.php" method="post">
-            <input type="text" name="nom" placeholder="Prenom" class="">
-            <input type="text" name="prenom" placeholder="Nom" class="">
-            <input type="email" name="mail" placeholder="E-mail" class="">
-            <input type="password" name="passwd1" placeholder="Mot de passe" class="">
-            <input type="password" name="passwd2" placeholder="Vérification du mot de passe" class="">
+        <form action="users.php" method="post">
+            <input type="text" name="prenom" placeholder="Prenom" class="<?php echo isset($_GET['prenom']) ? 'error' : '' ; ?>">
+            <input type="text" name="nom" placeholder="Nom" class="<?php echo isset($_GET['nom']) ? 'error' : '' ; ?>">
+            <input type="email" name="mail" placeholder="E-mail" class="<?php echo isset($_GET['mail']) ? 'error' : '' ; ?>">
+            <input type="password" name="passwd1" placeholder="Mot de passe" class="<?php echo isset($_GET['passwd1']) ? 'error' : '' ; ?>">
+            <input type="password" name="passwd2" placeholder="Vérification du mot de passe" class="<?php echo isset($_GET['passwd2']) ? 'error' : '' ; ?>">
             <button type="submit" class="btn btn-default" value="send">S'inscrire</button>
-            <!-- <input type="hidden" name="from" value="register"> -->
+            <!-- <input type="submit" name = "submit" value="Envoyer" /> -->
+            <input type="hidden" name="from" value="register">
             <!-- <input type="hidden" name="success" value="login"> -->
             <p>Tu es déjà inscrit ? <a href="login.php">Connecte toi</a></p>
         </form>
@@ -31,25 +32,19 @@
 </html>
 
 <?php
-  if ($_SESSION['flag_champs'] == "KO")
+  if ($_SESSION['mail_already_registered'] == "ON")
   {
-    echo "<p id='error'>Erreur : vous devez remplir tous les champs\n</p>";
-    $_SESSION['flag_champs'] = NULL;
+    echo "<p id='error'>Un compte existe déjà avec cette adresse mail\n</p>";
+    $_SESSION['mail_already_registered'] = NULL;
   }
-  else if ($_SESSION['flag_mail'] == "KO")
+  if ($_SESSION['flag_cmp_passwd'] == "KO")
   {
-      echo "<p id='error'>Erreur : un compte existe déjà avec cette adresse mail\n</p>";
-    $_SESSION['flag_mail'] = NULL;
+      echo "<p id='error'>Les deux mots de passe ne correspondent pas\n</p>";
+    $_SESSION['flag_cmp_passwd'] = NULL;
   }
-  else if ($_SESSION['flag_passwd'] == "KO")
+  if ($_SESSION['flag_empty_fields'] == "ON")
   {
-      echo "<p id='error'>Erreur : veuillez recopier votre mot de passe a l'identique\n</p>";
-    $_SESSION['flag_passwd'] = NULL;
+      echo "<p id='error'>Veuillez remplir tous les champs çi-dessous\n</p>";
+    $_SESSION['flag_empty_fields'] = NULL;
   }
-  else if ($_SESSION['flag_user_created'] == "OK")
-    {
-      echo "<div id='inscription-ok'>Inscription terminée !<br/><br/><a href='connexion/connexion.php'>Connectez-Vous! :)</a></div>";
-      $_SESSION['flag_user_created'] = NULL;
-    }
-
 ?>

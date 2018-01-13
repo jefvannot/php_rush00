@@ -2,6 +2,7 @@
 session_start();
 include("install.php");
 
+include('partial/head.php');
 include('partial/header.php');
 ?>
 <body>

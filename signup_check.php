@@ -3,6 +3,7 @@ session_start();
 
 function	get_signup_form_data()
 {
+	echo "<br><br>tets<br><br>";
 	if (!isset($_POST['prenom'])
 		|| !isset($_POST['nom'])
 		|| !isset($_POST['mail'])
@@ -25,43 +26,123 @@ function	get_signup_form_data()
 		&& $_POST['passwd1'] != "admin"
 		&& $_POST['passwd2'] != "admin"
 		&& $_POST['passwd1'] == $_POST['passwd2']
-		&& $_POST['submit'] === "send")
+		&& $_POST['submit'] && $_POST['submit'] == "send")
 	{
+	echo "IN !!!";
 		$new_user['nom'] = $_POST['nom'];
     	$new_user['prenom'] = $_POST['prenom'];
     	$new_user['mail'] = $_POST['mail'];
 		$new_user['passwd'] = hash('whirlpool', $_POST['passwd1']);
 	}
+// print_r($new_user);
 	return ($new_user);
 }
 
-$path = "../private";
-$file = $path."/passwd";
+// echo $_POST['prenom']."<br>";
+// echo $_POST['nom']."<br>";
+// echo $_POST['mail']."<br>";
+// echo $_POST['passwd1']."<br>";
+// echo $_POST['passwd2']."<br>";
+// echo $_POST['submit']."<br>";
+// $path = "private";
+// $file = $path."/passwd";
+// print_r($_POST);
 
 $new_user = get_signup_form_data();
-if (!file_exists($path))
-	mkdir ($path);
+// if (!file_exists($path))
+// 	mkdir ($path);
+
+print_r($new_user);
+
+
+
+// if (!file_exists($file))
+// {
+// 	$unserialized[] = $new_user;
+// 	$serialized[] = serialize($unserialized);
+// 	file_put_contents($file, $serialized);
+// $_SESSION['flag_user_created'] = "OK";
+// 	header('Location: signup.php');
+// 	exit();
+// }
+// else
+// {
+// 	$unserialized = unserialize(file_get_contents($file));
+// 	foreach ($unserialized as $elem)
+// 	{
+// 		foreach ($elem as $mail=>$value)
+// 		{
+// 			if ($value == $new_user['mail'])
+// 			{
+// 				$_SESSION['flag_mail'] = "KO";
+// 				header('Location: signup.php');
+// 				exit();
+// 			}
+// 		}
+// 	}
+// 	$unserialized[] = $new_user;
+// 	$serialized = serialize($unserialized);
+// 	file_put_contents($file, $serialized);
+// $_SESSION['flag_user_created'] = "OK";
+// 	header('Location: signup.php');
+// 	exit();
+
+
+
+
+
+// if (!file_exists($file))
+// {
+// 	$unserialized[] = $new_user;
+// 	$serialized[] = serialize($unserialized);
+// }
+// else
+// {
+// 	$unserialized = unserialize(file_get_contents($file));
+// 	foreach ($unserialized as $elem)
+// 	{
+// 		foreach ($elem as $mail => $value)
+// 		{
+// 			if ($value == $new_user['mail'])
+// 			{
+// 				$_SESSION['flag_mail'] = "KO";
+// 				header('Location: signup.php');
+// 				exit();
+// 			}
+// 		}
+// 	}
+// 	$unserialized[] = $new_user;
+// 	$serialized = serialize($unserialized);
+// }
+// file_put_contents($file, $serialized);
+// $_SESSION['flag_user_created'] = "OK";
+// header('Location: signup.php');
+// exit();
+
+
+
 if (file_exists($file))
+    $accounts = unserialize(file_get_contents($file));
+if ($accounts && array_search($_POST['mail'], array_column($accounts, 'mail')) !== false)
 {
-	$users = unserialize(file_get_contents($file));
-	foreach ($users as $v)
-	{
-		foreach ($v as $mail => $value)
-		{
-			if ($value == $new_user['mail'])
-			{
-				$_SESSION['flag_mail'] = "KO";
-				header('Location: signup.php');
-				exit();
-			}
-		}
-	}	
+	$_SESSION['flag_mail'] = "KO";
+	header('Location: signup.php');
+	exit();
 }
-$users[] = $new_user;
-file_put_contents($file, serialize($users);
+$accounts[] = $new_user;
+// $serialized[] = serialize($accounts);
+// file_put_contents($file, $serialized);
+file_put_contents($file, serialize($accounts));
 $_SESSION['flag_user_created'] = "OK";
 header('Location: signup.php');
-echo "TEDQKUHBDIQ";
+echo "OK\n";
 exit();
+
+
+
+
+
+
+
 
 ?>

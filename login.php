@@ -22,11 +22,11 @@
             }
        ?> 
         <h1>Connexion</h1>
-        <form action="auth_login.php" method="post">
+        <form action="users.php" method="post">
             <input type="email" name="mail" placeholder="E-mail" class="" value="">
             <input type="password" name="passwd" placeholder="Mot de passe" class="">
             <button type="submit" class="btn btn-default">Connection</button>
-            <!-- <input type="hidden" name="from" value="login"> -->
+            <input type="hidden" name="from" value="login">
             <!-- <input type="hidden" name="success" value="index"> -->
             <p>Tu n'es pas encore inscrit ? <a href="signup.php">Inscris toi</a></p>
         </form>
