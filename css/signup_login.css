@@ -1,5 +1,4 @@
 body {
-    background-color: #74cac3;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -7,6 +6,11 @@ body {
 }
 
 .container {
+    width: 100%;
+    background-color: #74cac3;
+}
+
+.log-box {
     width: 400px;
     background-color: #ffffff;
     margin: 10% auto;
@@ -16,7 +20,7 @@ body {
     flex-direction: column;
 }
 
-.container p {
+.log-box p {
     font-size: 12px;
     font-weight: 400;
     margin: 20px 0 0 0;
@@ -38,3 +42,19 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #028a7f;
 }
+
+.log-box input {
+    width: calc(100% - 26px);
+    height: 34px; 
+}
+
+.error-login {
+        background-color: #d82222;
+    color: white;
+}
+.error-login p {
+    margin: 25px;
+}
+
+
+
