@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo'])) {
+    if (isset($_SESSION['logged_on_user']) && !empty($_SESSION['logged_on_user'])) {
         header('Location: index.php');
         exit();
     }
@@ -41,7 +41,7 @@
             <input type="password" name="passwd2" placeholder="Vérification du mot de passe" class="<?php echo isset($_GET['passwd2']) ? 'error' : '' ; ?>">
             <button type="submit" class="btn btn-default" value="send">S'inscrire</button>
             <!-- <input type="submit" name = "submit" value="Envoyer" /> -->
-            <input type="hidden" name="from" value="register">
+            <input type="hidden" name="action" value="register">
             <!-- <input type="hidden" name="success" value="login"> -->
             <p>Tu es déjà inscrit ? <a href="login.php">Connecte toi</a></p>
         </form>

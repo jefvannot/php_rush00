@@ -1,32 +1,73 @@
 <?php
 session_start();
-include("auth.php");
 
-$functions = array('login', 'register');
+include("tools/auth.php");
+include('tools/get_db.php');
 
-function auth($email, $passwd) {
+
+function passwd_update(array $data) {
 	$path = "private";
 	$file = $path."/passwd";
-    if (!file_exists($path))
-		mkdir ($path);
-	if (file_exists($file))
-    	$account = unserialize(file_get_contents($file));
-    if (!$account || array_search($email, array_column($account, 'mail')) === false)
-    {
-        $_SESSION['flag_unknown_mail'] = "ON";
-		header('Location: login.php?mail');
-        exit();
-    }
-    if ($account) {
-        foreach ($account as $k => $v) {
-            if ($v['email'] === $mail && $v['passwd'] === hash('whirlpool', $passwd))
-                return $v;
-        }
-    }
-    return false;
+    $db = get_db($path, $file);
+	$key = array_search($_SESSION['mail'], array_column($db, 'mail'));
+
+	if ($data['oldpwd'] == "")
+		$error[] = 'oldpwd';
+	if ($data['newpwd1'] == "")
+		$error[] = 'newpwd1';
+	if ($data['newpwd2'] == "")
+		$error[] = 'newpwd2';
+	if ($error)
+	{
+		$_SESSION['flag_empty_fields'] = "ON";
+		header('Location: modif_pwd.php?'.implode('&', $error));
+		exit();
+	}
+	if ($db[$key]['passwd'] != hash('whirlpool', $data['oldpwd'])) {
+		$_SESSION['flag_bad_passwd'] = "ON";
+		header('Location: modif_pwd.php?'.implode('&', $error));
+		exit();
+	}
+    if ($data['newpwd1'] != $data['newpwd2'])
+	{
+		$_SESSION['flag_cmp_passwd'] = "KO";
+		header('Location: modif_pwd.php');
+		exit();
+	}
+	$db[$key]['passwd'] = hash('whirlpool', $data['newpwd1']);
+	file_put_contents($file, serialize($db));
+	$_SESSION['flag_password_updated'] = "OK";
+	header('Location: index.php');
+	exit();
+}
+
+function profil_update(array $data) {
+	$path = "private";
+	$file = $path."/passwd";
+    $db = get_db($path, $file);
+	if ($data['mail'] != $_SESSION['mail'] && array_search($data['mail'], array_column($db, 'mail')) !== false)
+	{
+		$_SESSION['mail_already_registered'] = "ON";
+		header('Location: modif_profil.php');
+		exit();
+	}
+	$key = array_search($_SESSION['mail'], array_column($db, 'mail'));
+	$db[$key]['prenom'] = $data['prenom'];
+	$db[$key]['nom'] = $data['nom'];
+	$db[$key]['mail'] = $data['mail'];
+	file_put_contents($file, serialize($db));
+	$_SESSION['logged_on_user'] = $data['prenom'];
+	$_SESSION['nom'] = $data['nom'];
+	$_SESSION['mail'] = $data['mail'];
+	$_SESSION['flag_profil_updated'] = "OK";
+	header('Location: index.php');
+	exit();
 }
 
 function login(array $data) {
+	$path = "private";
+	$file = $path."/passwd";
+    $db = get_db($path, $file);
 	if ($data['mail'] == "")
 		$error[] = 'mail';
 	if ($data['passwd'] == "")
@@ -37,7 +78,7 @@ function login(array $data) {
 		header('Location: login.php?'.implode('&', $error));
 		exit();
 	}
-	if ($user = auth($data['mail'], $data['passwd']))
+	if ($user = auth($db, $data['mail'], $data['passwd']))
 	{
 		$_SESSION['logged_on_user'] = $user['prenom'];
 		$_SESSION['nom'] = $user['nom'];
@@ -58,23 +99,19 @@ function login(array $data) {
 function create_user(array $data) {
 	$path = "private";
 	$file = $path."/passwd";
-	$new_user['nom'] = $data['nom'];
+    $db = get_db($path, $file);
+    $new_user['nom'] = $data['nom'];
 	$new_user['prenom'] = $data['prenom'];
 	$new_user['mail'] = $data['mail'];
 	$new_user['passwd'] = hash('whirlpool', $data['passwd1']);
-
-	if (!file_exists($path))
-		mkdir ($path);
-	if (file_exists($file))
-	    $accounts = unserialize(file_get_contents($file));
-	if ($accounts && array_search($data['mail'], array_column($accounts, 'mail')) !== false) // plus l'admin a gerer
+	if ($db && array_search($data['mail'], array_column($db, 'mail')) !== false) // plus l'admin a gerer
 	{
 		$_SESSION['mail_already_registered'] = "ON";
 		header('Location: signup.php');
 		exit();
 	}
-	$accounts[] = $new_user;
-	file_put_contents($file, serialize($accounts));
+	$db[] = $new_user;
+	file_put_contents($file, serialize($db));
 	$_SESSION['flag_user_created'] = "OK";
 	$_SESSION['logged_on_user'] = $new_user['prenom'];
 	header('Location: index.php');
@@ -109,6 +146,8 @@ function register(array $data) {
 	create_user($data);
 }
 
-if ($_POST['from'] && in_array($_POST['from'], $functions))
-	$_POST['from']($_POST);
+$action_array = array('login', 'register', 'profil_update', 'passwd_update');
+
+if ($_POST['action'] && in_array($_POST['action'], $action_array))
+	$_POST['action']($_POST);
 ?>

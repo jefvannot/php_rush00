@@ -1,4 +1,5 @@
 <?php
+session_start();
 $css_file = "products.css";
 include('partial/head.php');
 include('partial/header.php');

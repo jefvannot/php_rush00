@@ -112,25 +112,20 @@ header div.menu a {
     margin: 0 10px;
 }
 
-.login > div {
+header .login > div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.login > div a {
+header .login > div a {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.login .user_firstname {
-    text-transform: capitalize;
-}
-.login img {
+header .basket img {
     height: 25px;
     margin: 5px;
 }
-
 header div.login {
     font-weight: 300;
     font-size: 13px;
@@ -139,6 +134,71 @@ header div.login {
     width: 25%;
     justify-content: space-around;
 }
+
+/* if login */
+header .login .user p {
+    text-transform: capitalize;
+}
+header .user img {
+    width: 9px;
+    margin: 5px;
+}
+header ul {
+    /*margin: -58px 0;*/
+    margin: 36px 0;
+    position: absolute;
+    top: 49px;
+    /*padding-left: 68px;*/
+    display: none;
+    /*-moz-transition: all .2s;*/
+    /*-webkit-transition: all .2s;*/
+    /*transition: all .2s;*/
+}
+header .choice li {
+    padding: 15px;
+    border-bottom: solid 1px #74cac3;
+    border-left: solid 1px #74cac3;
+    border-right: solid 1px #74cac3;
+    background-color: white;
+    display: flex;
+}
+header li {
+    list-style-type: none; 
+    position: relative; 
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+header .user:hover .choice {
+    /*margin: 36px 0;*/
+    display: block;
+}
+header li:hover {
+    /*margin: 36px 0;*/
+    background-color: #f8fffe;
+}
+
+
+
+
+
+
+
+
+
+
+
+.flag {
+    width: 100%;
+    height: 84px;
+    margin-top: 85px;
+    background-color: #74cac3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .container {
     display: flex;

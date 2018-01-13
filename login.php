@@ -34,7 +34,7 @@
             <input type="email" name="mail" placeholder="E-mail" class="<?php echo isset($_GET['mail']) ? 'error' : '' ; ?>">
             <input type="password" name="passwd" placeholder="Mot de passe" class="<?php echo isset($_GET['passwd']) ? 'error' : '' ; ?>">
             <button type="submit" class="btn btn-default">Connection</button>
-            <input type="hidden" name="from" value="login">
+            <input type="hidden" name="action" value="login">
             <!-- <input type="hidden" name="success" value="index"> -->
             <p>Tu n'es pas encore inscrit ? <a href="signup.php">Inscris toi</a></p>
         </form>
