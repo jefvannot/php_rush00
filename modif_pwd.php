@@ -29,11 +29,11 @@
         <h1>Mon mot se passe</h1>
         <form action="users.php" method="post">
             <h4>Mot de passe actuel</h4>
-            <input type="text" name="oldpwd" class="<?php echo isset($_GET['oldpwd']) ? 'error' : '' ; ?>">
+            <input type="password" name="oldpwd" class="<?php echo isset($_GET['oldpwd']) ? 'error' : '' ; ?>">
             <h4>Nouveau mot de passe</h4>
-            <input type="text" name="newpwd1" class="<?php echo isset($_GET['newpwd1']) ? 'error' : '' ; ?>">
+            <input type="password" name="newpwd1" class="<?php echo isset($_GET['newpwd1']) ? 'error' : '' ; ?>">
             <h4>Vérification du nouveau mot de passe</h4>
-            <input type="text" name="newpwd2" class="<?php echo isset($_GET['newpwd2']) ? 'error' : '' ; ?>">
+            <input type="password" name="newpwd2" class="<?php echo isset($_GET['newpwd2']) ? 'error' : '' ; ?>">
             <button type="submit" class="btn btn-default" value="send">Modifier mon mot de passe</button>
             <!-- <input type="submit" name = "submit" value="Envoyer" /> -->
             <input type="hidden" name="action" value="passwd_update">
