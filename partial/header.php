@@ -14,11 +14,18 @@
                 <p>0 articles</p>
             </a>
         </div>
-        <div>
-            <a href="signup.php">Inscription</a>
-        </div>
-        <div>
-            <a href="login.php">Connexion</a>
-        </div>
+        <!-- <div><a href="signup.php">Inscription</a></div> -->
+        <!-- <div><a href="login.php">Connexion</a></div> -->
+        <?php
+            if (isset($_SESSION['logged_on_user']) && !empty($_SESSION['logged_on_user'])) {
+                echo '<div><p class="user_firstname">Bonjour '.$_SESSION['logged_on_user'].'</p></div>';
+                echo '<div><a href="logout.php">Déconnexion</a></div>';
+            } else {
+                echo '<div><a href="signup.php">Inscription</a></div>';
+                echo '<div><a href="login.php">Connexion</a></div>';
+            }
+        ?>
     </div>
 </header>
+
+

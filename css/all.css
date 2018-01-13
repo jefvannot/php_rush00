@@ -123,6 +123,9 @@ header div.menu a {
     align-items: center;
 }
 
+.login .user_firstname {
+    text-transform: capitalize;
+}
 .login img {
     height: 25px;
     margin: 5px;

@@ -12,6 +12,26 @@
 <body>
     <div class="container">
         <div class="log-box">
+
+<?php
+  if ($_SESSION['mail_already_registered'] == "ON")
+  {
+    echo "<div class='error-login'><p>Un compte existe déjà avec cette adresse mail\n</p></div>";
+    $_SESSION['mail_already_registered'] = NULL;
+  }
+  if ($_SESSION['flag_cmp_passwd'] == "KO")
+  {
+      echo "<div class='error-login'><p>Les deux mots de passe ne correspondent pas\n</p></div>";
+    $_SESSION['flag_cmp_passwd'] = NULL;
+  }
+  if ($_SESSION['flag_empty_fields'] == "ON")
+  {
+      echo "<div class='error-login'><p>Veuillez remplir tous les champs çi-dessous\n</p></div>";
+    $_SESSION['flag_empty_fields'] = NULL;
+  }
+?>
+
+
         <h1>Inscription</h1>
         <form action="users.php" method="post">
             <input type="text" name="prenom" placeholder="Prenom" class="<?php echo isset($_GET['prenom']) ? 'error' : '' ; ?>">
@@ -31,20 +51,3 @@
 </body>
 </html>
 
-<?php
-  if ($_SESSION['mail_already_registered'] == "ON")
-  {
-    echo "<p id='error'>Un compte existe déjà avec cette adresse mail\n</p>";
-    $_SESSION['mail_already_registered'] = NULL;
-  }
-  if ($_SESSION['flag_cmp_passwd'] == "KO")
-  {
-      echo "<p id='error'>Les deux mots de passe ne correspondent pas\n</p>";
-    $_SESSION['flag_cmp_passwd'] = NULL;
-  }
-  if ($_SESSION['flag_empty_fields'] == "ON")
-  {
-      echo "<p id='error'>Veuillez remplir tous les champs çi-dessous\n</p>";
-    $_SESSION['flag_empty_fields'] = NULL;
-  }
-?>

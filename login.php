@@ -13,18 +13,26 @@
     <div class="container">
     <div class="log-box">
        <?php
-        if ($_SESSION['flag_log'] == "KO")
-            {
-                echo "<div class='error-login'>";
-                echo "<p>Votre e-mail ou votre mot de passe n'est pas bon</p>";
-                $_SESSION['flag_log'] = "";
-                echo "</div>";
-            }
+        if ($_SESSION['flag_empty_fields'] == "ON")
+        {
+            echo "<div class='error-login'><p>Veuillez remplir tous les champs çi-dessous\n</p></div>";
+            $_SESSION['flag_empty_fields'] = NULL;
+        }
+        if ($_SESSION['flag_unknown_mail'] == "ON")
+        {
+            echo "<div class='error-login'><p>Votre e-mail nous est inconnu</p></div>";
+            $_SESSION['flag_unknown_mail'] = NULL;
+        }
+        if ($_SESSION['flag_bad_passwd'] == "ON")
+        {
+            echo "<div class='error-login'><p>Votre mot de passe n'est pas le bon</p></div>";
+            $_SESSION['flag_bad_passwd'] = NULL;
+        }
        ?> 
         <h1>Connexion</h1>
         <form action="users.php" method="post">
-            <input type="email" name="mail" placeholder="E-mail" class="" value="">
-            <input type="password" name="passwd" placeholder="Mot de passe" class="">
+            <input type="email" name="mail" placeholder="E-mail" class="<?php echo isset($_GET['mail']) ? 'error' : '' ; ?>">
+            <input type="password" name="passwd" placeholder="Mot de passe" class="<?php echo isset($_GET['passwd']) ? 'error' : '' ; ?>">
             <button type="submit" class="btn btn-default">Connection</button>
             <input type="hidden" name="from" value="login">
             <!-- <input type="hidden" name="success" value="index"> -->
