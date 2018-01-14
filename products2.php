@@ -51,7 +51,7 @@ include('partial/header.php');
         { 
           if(isset($_POST[$planet[4]]))
           {
-            if(isset($_POST[$planet[7]]))
+            if(isset($_POST[$planet[6]]))
               //NOTE : Voire note d'au dessus. Evidemment le probleme se répercute ici (il faudrait un troisième if mais je l'ai temporairement enlevé).
             {
               echo "<a href='show_planet.php?planet=".$planet[1]."' title='".$planet[1]."'>";
