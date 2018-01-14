@@ -33,10 +33,11 @@ include('partial/header.php');
 						<button type="submit" class="btn btn-default">modifier</button>
 					</form>
 					<?php if ($elem[prenom] != 'admin') { ?>
-						<form action="" method="post">
-						<input type="hidden" name="user_mail" value="<?php echo $elem[mail]; ?>">
+					<form action="admin/manage_users.php" method="post">
+						<input type="hidden" name="mail" value="<?php echo $elem[mail]; ?>">
+						<input type="hidden" name="action" value="delete">
 						<button type="submit" class="btn btn-default">supprimer</button>
-						</form>
+					</form>
 					<?php } ?>
 					<?php
 					echo "</div>";

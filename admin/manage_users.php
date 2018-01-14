@@ -4,6 +4,20 @@ session_start();
 include("../tools/auth.php");
 include('../tools/get_db.php');
 
+function delete(array $data) {
+	$path = "../private";
+	$file = $path."/passwd";
+	$db = get_db($path, $file);
+	foreach ($db as $key => $elem) {
+		if ($elem[mail] == $data[mail])
+			$idx = $key;
+	}
+	unset($db[$idx]);
+	file_put_contents($file, serialize($db));
+	header('Location: ../admin_users.php');
+	exit();
+}
+
 function update(array $data) {
 	$path = "../private";
 	$file = $path."/passwd";
@@ -74,7 +88,7 @@ function register(array $data) {
 	create_user($data);
 }
 
-$action_array = array('register', 'update');
+$action_array = array('register', 'update', 'delete');
 
 if ($_POST['action'] && in_array($_POST['action'], $action_array))
 	$_POST['action']($_POST);
