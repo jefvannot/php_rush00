@@ -1,56 +1,45 @@
 <?php
 session_start();
-$_SESSION['acheter'] = "";
 
+/* cree la db users */
 $path = "private";
 $file = "private/passwd";
 if (!file_exists($path))
+	mkdir ($path);
+if (!file_exists($file))
 {
-  mkdir ($path);
-  $my_file = fopen("$file", "x");
-
-  $tab[0][nom] = 'admin';
-  $tab[0][prenom] = 'admin';
-  $tab[0][mail] = 'admin';
-  $tab[0][passwd] = hash('whirlpool', "admin");
-
-  $serialized[] = serialize($tab);
-  file_put_contents($file, $serialized);
+	$admin[nom] = 'admin';
+	$admin[prenom] = 'admin';
+	$admin[mail] = 'admin@admin';
+	$admin[passwd] = hash('whirlpool', "admin");
+	$db_users[] = $admin;
+	file_put_contents($file, serialize($db_users));
 }
-include("./get_db.php");
 
+/* cree la db planetes sérializée */
+$array = file("db/db_planets.csv");
+unset($array[0]);
+foreach ($array as $elem)
+	$db_line[] = explode(";", $elem);
+file_put_contents("db/serialized", serialize($db_line));
+
+/* cree la db cathégories */
 $file_categories = $path."/categories";
 if (!file_exists($file_categories))
 {
-  $my_file_categories = fopen("$file_categories", "x");
+	$my_file_categories = fopen("$file_categories", "x");
 
-  // $location[] = 'systeme solaire';
-  // $location[] = 'plus loin';
-  // $location[] = 'bien plus loin';
+	$categories[lieu][0] = 'systeme solaire';
+	$categories[lieu][1] = 'plus loin';
+	$categories[lieu][2] = 'bien plus loin';
 
-  // $color[] = 'bleu';
-  // $color[] = 'beige';
+	$categories[couleur][0] = 'bleu';
+	$categories[couleur][1] = 'beige';
 
-  // $taille[] = 'petite';
-  // $taille[] = 'moyenne';
-  // $taille[] = 'grosse';
-  $categories[lieu][0] = 'systeme solaire';
-  $categories[lieu][1] = 'plus loin';
-  $categories[lieu][2] = 'bien plus loin';
+	$categories[taille][0] = 'petite';
+	$categories[taille][1] = 'moyenne';
+	$categories[taille][2] = 'grosse';
 
-  $categories[couleur][0] = 'bleu';
-  $categories[couleur][1] = 'beige';
-
-  $categories[taille][0] = 'petite';
-  $categories[taille][1] = 'moyenne';
-  $categories[taille][2] = 'grosse';
-  
-  // $categories[lieu] = $location;
-  // $categories[couleur] = $color;
-  // $categories[taille] = $taille;
-
-  file_put_contents($file_categories, serialize($categories));
+	file_put_contents($file_categories, serialize($categories));
 }
-
-// echo "<meta http-equiv='refresh' content='0,url=index.php'>";
 ?>
