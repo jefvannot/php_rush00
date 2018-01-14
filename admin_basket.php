@@ -1,10 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['logged_on_user'] != "admin")
-{
-	header('Location: index.php');
-	exit();
-}
+include('partial/admin_only.php');
 
 $css_path = "./";
 $css_file = "admin.css";

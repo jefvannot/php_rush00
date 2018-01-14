@@ -112,6 +112,9 @@ header div.login {
 	justify-content: space-around;
 }
 /* if login */
+header .login .user {
+	
+}
 header .login .user p {
 	text-transform: capitalize;
 }
