@@ -9,13 +9,14 @@ include('partial/header.php');
   <div class="container">
 
     <?php
+
 	$file = "db/categories";
     $unserialized = unserialize(file_get_contents($file));
     ?>
 
     <div class="filter_box">
       <h2>Quelle planète choisir ?</h2>
-      <form method='post' action='products2.php'>
+      <form method='post' action='products-sorted.php'>
         <div class="categories">
            <?php
            foreach ($unserialized as $k => $v)
