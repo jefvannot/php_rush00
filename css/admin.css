@@ -35,7 +35,6 @@
 	height: 100%;
 }
 button {
-	/*border-radius: 1px;*/
 	margin: 5px;
 }
 button:focus {
@@ -53,4 +52,38 @@ button:focus {
 	font-size: 0.9em;
 	padding: 0 5px;
 }
-
+.cat-first {
+	width: 175px;
+}
+.cat {
+	width: 111px;
+	height: 35px;
+}
+.cat-content {
+	display: flex;
+	width: 70vw;
+}
+.cat-content > div {
+	flex: 1;
+	/*margin: 0 45px;*/
+}
+.cat-first {
+	padding: 0;
+}
+.cat-content form {
+	margin: 0 !important;
+	/*height: 26px;*/
+}
+.cat-content p {
+	display: flex;
+	justify-content: center;
+}
+.cat-content h5 {
+	margin: 0.3em 0;
+    text-align: left;
+    font-size: 0.8em;
+}
+.cat-content input {
+	margin: 5px 0;
+	width: 177px;
+}

@@ -30,7 +30,7 @@ function update(array $data) {
 }
 
 
-function create_user(array $data) {
+function create_product(array $data) {
 	$file = "../db/serialized";
 	$db = unserialize(file_get_contents($file));
 	$new[1] = $data['nom'];
@@ -65,10 +65,10 @@ function register(array $data) {
 	if ($error)
 	{
 		$_SESSION['flag_empty_fields'] = "ON";
-		header('Location: ../admin_create_user.php?'.implode('&', $error));
+		header('Location: ../admin_create_product.php?'.implode('&', $error));
 		exit();
 	}
-	create_user($data);
+	create_product($data);
 }
 
 $action_array = array('register', 'update', 'delete');
