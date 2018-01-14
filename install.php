@@ -29,17 +29,24 @@ if (!file_exists($file_categories))
 {
 	$my_file_categories = fopen("$file_categories", "x");
 
-	$categories[lieu][0] = 'systeme solaire';
-	$categories[lieu][1] = 'plus loin';
-	$categories[lieu][2] = 'bien plus loin';
+	
+  $categories[lieu][0] = 'proche';
+  $categories[lieu][1] = 'loin';
+  $categories[lieu][2] = 'ailleurs';
 
-	$categories[couleur][0] = 'bleu';
-	$categories[couleur][1] = 'beige';
+  $categories[couleur][0] = 'bleu';
+  $categories[couleur][1] = 'beige';
+  $categories[couleur][2] = 'rouge';
+  $categories[couleur][3] = 'ocre';
+  $categories[couleur][4] = 'gris';
 
-	$categories[taille][0] = 'petite';
-	$categories[taille][1] = 'moyenne';
-	$categories[taille][2] = 'grosse';
+  $categories[taille][0] = 'petite';
+  $categories[taille][1] = 'moyenne';
+  $categories[taille][2] = 'grosse';
+  $categories[taille][3] = 'naine';
 
-	file_put_contents($file_categories, serialize($categories));
+
+  file_put_contents($file_categories, serialize($categories));
+
 }
 ?>

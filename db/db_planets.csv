@@ -11,3 +11,4 @@ id;nom;location;taille;poids;couleur;image;prix
 7;haumea;systeme solaire;naine;1,898 × 10^27 kg;gris pierre;./img/haumea.jpeg;20
 8;makemake;systeme solaire;naine;1,898 × 10^27 kg;pierre rouge;./img/makemake.jpg;10
 9;eris;systeme solaire;naine;1,898 × 10^27 kg;blanche;./img/eris.jpg;30
+
