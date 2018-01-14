@@ -50,13 +50,20 @@ include('partial/header.php');
 				<p>Total</p>
 				<p>$ <?php echo $sum; ?> K</p>
 			</div>
-			<form action="basket_save.php" method="post">
-				<button type="submit" class="btn btn-default">Valider</button>
-			</form>
 			<?php
+			if (isset($_SESSION['logged_on_user']) && !empty($_SESSION['logged_on_user']))
+			{
+				?>
+				<form action="basket_save.php" method="post">
+					<button type="submit" class="btn btn-default">Sauvegarder</button>
+				</form>
+				<?php
+			}
+			else
+				echo "<p>Veuillez vous connecter avant de valider votre panier</p>";
 		}
 		else
-			echo "<p>Votre panier est vide</p>";
+		echo "<p>Votre panier est vide</p>";
 		?>
 
 	</div>

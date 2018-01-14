@@ -32,6 +32,11 @@ include('partial/header.php');
 	echo "<div class='flag'><p>Votre compte a bien été supprimé\n</p></div>";
 	$_SESSION['flag_user_deleted'] = NULL;
 	}
+	if ($_SESSION['basket_saved'] == "OK")
+	{
+	echo "<div class='flag'><p>Votre panier a bien été sauvegardé\n</p></div>";
+	$_SESSION['basket_saved'] = NULL;
+	}
 	?>
     <div class="container index">
    
