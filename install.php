@@ -24,21 +24,22 @@ foreach ($array as $elem)
 file_put_contents("db/serialized", serialize($db_line));
 
 /* cree la db cathégories */
-$file_categories = $path."/categories";
+$file_categories = "db/categories";
 if (!file_exists($file_categories))
 {
 	$my_file_categories = fopen("$file_categories", "x");
 
-	$categories[lieu][0] = 'systeme solaire';
-	$categories[lieu][1] = 'plus loin';
-	$categories[lieu][2] = 'bien plus loin';
+	$categories[couleur][0] = 'bleue';
+	$categories[couleur][1] = 'verte';
+	$categories[couleur][2] = 'orange';
+	$categories[couleur][3] = 'rouge';
+	$categories[couleur][4] = 'grise';
+	$categories[couleur][5] = 'blanche';
 
-	$categories[couleur][0] = 'bleu';
-	$categories[couleur][1] = 'beige';
-
-	$categories[taille][0] = 'petite';
-	$categories[taille][1] = 'moyenne';
-	$categories[taille][2] = 'grosse';
+	$categories[taille][0] = 'naine';
+	$categories[taille][1] = 'petite';
+	$categories[taille][2] = 'moyenne';
+	$categories[taille][3] = 'grosse';
 
 	file_put_contents($file_categories, serialize($categories));
 }

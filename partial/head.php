@@ -7,4 +7,5 @@
     <link rel="stylesheet" href='<?php echo $css_path."css/".$css_file."?t=".time(); ?>'>
     <!-- <link rel="stylesheet" href=<?php #echo "css/".$css_file; ?>> -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 </head>
