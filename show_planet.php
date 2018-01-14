@@ -1,5 +1,6 @@
 <?php  
 session_start();
+$css_path = "./";
 $css_file = "show_planet.css";
 include('partial/head.php');
 include('partial/header.php'); 

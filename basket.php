@@ -1,5 +1,6 @@
 <?php  
 session_start();
+$css_path = "./";
 $css_file = "basket.css";
 include('partial/head.php');
 include('partial/header.php'); 
@@ -14,7 +15,6 @@ include('partial/header.php');
 		if ($_SESSION['basket'] && $_SESSION['nb_articles'])
 		{
 			?>
-
 			<div class="product-choice-top">
 				<p style="width: 50px"></p>
 				<p>Nom</p>
