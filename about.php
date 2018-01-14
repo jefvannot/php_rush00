@@ -9,7 +9,7 @@ include('partial/header.php');
 ?>
 <body>
 
-    <div class="container">
+    <div class="container about">
    
 		<div class="row">
 		    <h1>Extraterrestres ?</h1>
