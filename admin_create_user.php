@@ -36,7 +36,6 @@ include('partial/header.php');
 				<input type="password" name="passwd2" placeholder="Vérification du mot de passe" class="<?php echo isset($_GET['passwd2']) ? 'error' : '' ; ?>">
 				<button type="submit" class="btn btn-default" value="send">Créer</button>
 				<input type="hidden" name="action" value="register">
-				<p>Tu es déjà inscrit ? <a href="login.php">Connecte toi</a></p>
 			</form>
 		</div>
 	</div>

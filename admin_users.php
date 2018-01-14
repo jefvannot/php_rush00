@@ -12,7 +12,7 @@ include('partial/header.php');
 		<div>
 			<h4>Liste des utilisateurs</h4>
 			<div>
-				<div class="product-choice first-row">
+				<div class="elem user-top first-row">
 					<p>Prénom</p>
 					<p>Nom</p>
 					<p>Mail</p>
@@ -21,8 +21,8 @@ include('partial/header.php');
 				include('tools/get_db.php');
 				$db = get_db('private', 'private/passwd');
 				foreach ($db as $elem) {
-					echo "<div class='product-choice-row'>";
-					echo "<div class='product-choice'>";
+					echo "<div class='elem-row user-row'>";
+					echo "<div class='elem user'>";
 					echo "<p>".$elem[prenom]."</p>";
 					echo "<p>".$elem[nom]."</p>";
 					echo "<p>".$elem[mail]."</p>";

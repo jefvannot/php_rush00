@@ -1,10 +1,8 @@
 .container {
 	flex-direction: column;
 }
-.product-choice-top, .product-choice, .total
-{
+.elem-top, .elem {
 	height: 50px;
-	width: 400px;
 	border-bottom: 1px #d5d5d5 solid;
 	display: flex;
 	/*justify-content: space-between;*/
@@ -16,23 +14,24 @@
 	font-weight: bold;
 	color: #505050;
 }
-.product-choice p {
-	flex: 1;
-}
-.product-choice-top {
+
+.elem-top {
 	color: grey;
 	margin-right: 52px;
 }
-.product-choice-row {
+.elem-row {
 	display: flex;
 	align-items: center;
 }
-.product-choice {
+.elem {
 	
 	border-left: 1px #d5d5d5 solid;
 	border-right: 1px #d5d5d5 solid;
 }
-.product-choice img {
+.elem p {
+	flex: 1;
+}
+.elem img {
 	height: 100%;
 }
 button {
@@ -40,6 +39,18 @@ button {
 	margin: 5px;
 }
 button:focus {
-    outline: 0 !important;
-    
+	outline: 0 !important;
 }
+
+
+.user-top, .user {
+	width: 400px;
+}
+.product-top, .product {
+	width: 70vw;
+}
+.product p {
+	font-size: 0.9em;
+	padding: 0 5px;
+}
+
