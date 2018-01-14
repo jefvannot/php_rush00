@@ -44,13 +44,15 @@ include('partial/header.php');
 				</form>
 				<?php
 				echo "</div>";
-
 			}
 			?>
 			<div class="total">
 				<p>Total</p>
 				<p>$ <?php echo $sum; ?> K</p>
 			</div>
+			<form action="basket_save.php" method="post">
+				<button type="submit" class="btn btn-default">Valider</button>
+			</form>
 			<?php
 		}
 		else
