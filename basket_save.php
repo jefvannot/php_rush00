@@ -21,6 +21,8 @@ include('partial/header.php');
 			$new[3] = $_SESSION['basket'];
 			$db_orders[] = $new;
 			file_put_contents($file, serialize($db_orders));
+			echo "<p>Panier sauvegarde</p>";
+			unset($_SESSION['basket']);
 			exit();
 		}
 		else if (!isset($_SESSION['logged_on_user']))
