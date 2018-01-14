@@ -36,14 +36,16 @@ include('partial/header.php');
 
     <div class="products-list">
         <?php
-        $db_planets = unserialize(file_get_contents("./db/serialized"));
+        $db_planets = unserialize(file_get_contents("db/serialized"));
         // print_r ($db_planets);
         foreach ($db_planets as $planet)
         {
+          echo "<a href='show_planet.php?planet=".$planet[1]."' title='".$planet[1]."'>";
           echo "<div class='card'>";
           echo "<div class='title'><h2>".$planet[1]."</h2></div>";
-          echo "<img src='".$planet[8]."'>";
+          echo "<img src='".$planet[7]."'>";
           echo "</div>";
+          echo "</a>";
         }
         ?>
 

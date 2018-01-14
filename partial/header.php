@@ -11,7 +11,7 @@
         <div class="basket">
             <a href="basket.php">
                 <img src="img/shop_logo.png" alt="">
-                <p>0 articles</p>
+                <p><?php foreach ($_SESSION['basket'] as $nb) {$qte += $nb;}; echo $qte ? $qte : '0' ?> articles</p>
             </a>
         </div>
         <!-- <div><a href="signup.php">Inscription</a></div> -->
