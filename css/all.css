@@ -44,7 +44,9 @@ a:hover {
 
 
 
-
+button:focus {
+    outline: 0 !important;
+}
 
 
 input, select{
@@ -203,7 +205,8 @@ header li:hover {
 .container {
     display: flex;
     justify-content: center;
-        padding: 84px 0;
+    align-items: center;
+    padding: 84px 0;
 }
 
 footer {
