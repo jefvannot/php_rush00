@@ -24,7 +24,7 @@ foreach ($array as $elem)
 file_put_contents("db/serialized", serialize($db_line));
 
 /* cree la db cathégories */
-$file_categories = $path."/categories";
+$file_categories = "db/categories";
 if (!file_exists($file_categories))
 {
 	$my_file_categories = fopen("$file_categories", "x");

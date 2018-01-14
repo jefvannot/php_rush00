@@ -1,14 +1,14 @@
 id;nom;location;taille;poids;couleur;image;prix
-0;mercure;systeme solaire;petite;5,972 × 10^24 kg;petrole;./img/mercure.jpg;35
-1;venus;systeme solaire;petite;5,972 × 10^24 kg;orange;./img/venus.jpg;45
-2;terre;systeme solaire;petite;5,972 × 10^24 kg;rouge;./img/terre.jpg;75
-3;mars;systeme solaire;petite;5,972 × 10^24 kg;bleu;./img/mars.jpg;85
-4;jupiter;systeme solaire;grosse;1,898 × 10^27 kg;beige;./img/jupiter.jpg;190
-3;saturne;systeme solaire;grosse;1,898 × 10^27 kg;gris;./img/saturne.jpg;150
-4;uranus;systeme solaire;moyenne;1,898 × 10^27 kg;verte;./img/uranus.jpeg;90
-5;neptune;systeme solaire;moyenne;5,972 × 10^24 kg;verdatre;./img/neptune.jpg;85
-6;pluton;systeme solaire;naine;1,898 × 10^27 kg;ocre;./img/pluton.jpg;70
-7;haumea;systeme solaire;naine;1,898 × 10^27 kg;gris pierre;./img/haumea.jpeg;20
-8;makemake;systeme solaire;naine;1,898 × 10^27 kg;pierre rouge;./img/makemake.jpg;10
-9;eris;systeme solaire;naine;1,898 × 10^27 kg;blanche;./img/eris.jpg;30
+0;mercure;proche;petite;5,972 × 10^24 kg;gris;./img/mercure.jpg;35
+1;venus;proche;petite;5,972 × 10^24 kg;beige;./img/venus.jpg;45
+2;terre;proche;petite;5,972 × 10^24 kg;bleu;./img/terre.jpg;75
+3;mars;proche;petite;5,972 × 10^24 kg;rouge;./img/mars.jpg;85
+4;jupiter;loin;grosse;1,898 × 10^27 kg;beige;./img/jupiter.jpg;190
+3;saturne;loin;grosse;1,898 × 10^27 kg;beige;./img/saturne.jpg;150
+4;uranus;loin;moyenne;1,898 × 10^27 kg;bleu;./img/uranus.jpeg;90
+5;neptune;ailleurs;moyenne;5,972 × 10^24 kg;bleu;./img/neptune.jpg;85
+6;pluton;ailleurs;naine;1,898 × 10^27 kg;ocre;./img/pluton.jpg;70
+7;haumea;ailleurs;naine;1,898 × 10^27 kg;gris;./img/haumea.jpeg;20
+8;makemake;ailleurs;naine;1,898 × 10^27 kg;rouge;./img/makemake.jpg;10
+9;eris;ailleurs;naine;1,898 × 10^27 kg;gris;./img/eris.jpg;30
 
