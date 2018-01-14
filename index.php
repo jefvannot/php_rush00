@@ -2,6 +2,7 @@
 session_start();
 include("install.php");
 
+$css_path = "./";
 include('partial/head.php');
 include('partial/header.php');
 ?>
