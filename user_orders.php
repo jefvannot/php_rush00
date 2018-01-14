@@ -16,7 +16,6 @@ include('partial/header.php');
 				foreach ($db as $elem) {
 					if ($elem[2] == $_SESSION['logged_on_user'])
 					{
-
 						echo "<div class='one-order'>";
 						echo "<div class='elem order-first first-row'><p>".$elem[1]."</p></div>";
 						foreach($elem[3] as $name => $qte)
@@ -30,11 +29,9 @@ include('partial/header.php');
 							echo "</div>";
 						}
 						echo "</div>";
+
 					}
 				}
-
-
-
 				?>
 			</div>
 

@@ -12,7 +12,6 @@ if (isset($_SESSION['logged_on_user']) && !empty($_SESSION['logged_on_user']) &&
 {
 	$file = "./db/orders";
 	$db_orders = unserialize(file_get_contents($file));
-	// $new[1] = date('l jS \of F Y h:i:s A', );
 	$new[1] = strftime("%d %B %Y %H:%M");
 	$new[2] = $_SESSION['logged_on_user'];
 	$new[3] = $_SESSION['basket'];
