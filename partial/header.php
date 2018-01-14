@@ -22,19 +22,32 @@
 				<p>Bonjour <?php echo $_SESSION['logged_on_user']; ?></p>
 				<img src="img/caret-down.svg" alt="">
 				<ul class="choice">
+					<li><a href="historic.php">Voir l'historique de mes achats</a></li>
 					<li><a href="modif_profil.php">Modifier mon profil</a></li>
 					<li><a href="modif_pwd.php">Modifier mon mot de passe</a></li>
 					<li><a href="delete.php">Supprimer mon compte</a></li>
-					<?php
-					if ($_SESSION['logged_on_user'] == "admin")
-					{
-						echo "<li><a href='admin_users.php'>Gérer les utilisateurs</a></li>";
-						echo "<li><a href='admin_products.php'>Gérer les produits</a></li>";
-						echo "<li><a href='admin_categories.php'>Gérer les catégories</a></li>";
-					}
-					?>
+
 				</ul>
 			</div>
+			<?php
+			if ($_SESSION['logged_on_user'] == "admin")
+			{
+				?>
+
+				<div class="user">
+					<p style="text-decoration: underline;">Back Office</p>
+					<img src="img/caret-down.svg" alt="">
+					<ul class="choice">
+						<li><a href='admin_basket.php'>Voir toutes les commandes</a></li>
+						<li><a href='admin_users.php'>Gérer les utilisateurs</a></li>
+						<li><a href='admin_products.php'>Gérer les produits</a></li>
+						<li><a href='admin_categories.php'>Gérer les catégories</a></li>
+					</ul>
+				</div>
+				<?php
+			}
+			?>
+
 
 			<div><a href="logout.php">Déconnexion</a></div>
 
