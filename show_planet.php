@@ -1,5 +1,6 @@
 <?php  
 session_start();
+$css_path = "./";
 $css_file = "show_planet.css";
 include('partial/head.php');
 include('partial/header.php'); 
@@ -15,17 +16,17 @@ include('partial/header.php');
 
 				<div class="content">
 				<div class="pic">
-					<img src="<?php echo $db_planets[$k][7]; ?>?time=<?php echo time(); ?>" alt="">
+					<img src="<?php echo $db_planets[$k][6]; ?>?time=<?php echo time(); ?>" alt="">
 				</div>
 				<div class="info">
 					<div class="title">
 						<h2>La planète <?php echo ucfirst($_GET[planet]) ?></h2>
 					</div>
-					<p>Location : <?php echo $db_planets[$k][3]; ?></p>
-					<p>Taille : <?php echo $db_planets[$k][4]; ?></p>
-					<p>Poids : <?php echo $db_planets[$k][5]; ?></p>
-					<p>Couleur : <?php echo $db_planets[$k][6]; ?></p>
-					<p>Prix : <?php echo $db_planets[$k][8]; ?> K</p>
+					<p>Location : <?php echo $db_planets[$k][2]; ?></p>
+					<p>Taille : <?php echo $db_planets[$k][3]; ?></p>
+					<p>Poids : <?php echo $db_planets[$k][4]; ?></p>
+					<p>Couleur : <?php echo $db_planets[$k][5]; ?></p>
+					<p>Prix : <?php echo $db_planets[$k][7]; ?> K</p>
 					<div class="margin">
 						<form action="basket_add_one.php" method="post">
 							<input type="hidden" name="planet" value="<?php echo $_GET[planet] ?>">

@@ -1,5 +1,6 @@
 <?php  
 session_start();
+$css_path = "./";
 $css_file = "basket.css";
 include('partial/head.php');
 include('partial/header.php'); 
@@ -14,7 +15,6 @@ include('partial/header.php');
 		if ($_SESSION['basket'] && $_SESSION['nb_articles'])
 		{
 			?>
-
 			<div class="product-choice-top">
 				<p style="width: 50px"></p>
 				<p>Nom</p>
@@ -27,12 +27,12 @@ include('partial/header.php');
 				$k = array_search($name, array_column($db_planets, '1'));
 				echo "<div class='product-choice-row'>";
 				echo "<div class='product-choice'>";
-				echo "<div class='pic'><img src='".$db_planets[$k][7]."'' alt=''></div>";
+				echo "<div class='pic'><img src='".$db_planets[$k][6]."'' alt=''></div>";
 				echo "<p>".ucfirst($db_planets[$k][1])."</p>";
-				echo "<p>$ ".$db_planets[$k][8]." K</p>";
+				echo "<p>$ ".$db_planets[$k][7]." K</p>";
 				echo "<p>".$qte."</p>";
 				echo "</div>";
-				$sum += ($db_planets[$k][8] * 10000 * $qte) / 10000;
+				$sum += ($db_planets[$k][7] * 10000 * $qte) / 10000;
 				?>
 				<form action="basket_del_one.php" method="post" style="margin-left: 10px;">
 					<input type="hidden" name="planet" value="<?php echo $db_planets[$k][1] ?>">
