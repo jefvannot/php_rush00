@@ -1,5 +1,11 @@
 <?php
 session_start();
+if ($_SESSION['logged_on_user'] != "admin")
+{
+	header('Location: index.php');
+	exit();
+}
+
 $css_path = "./";
 $css_file = "signup_login.css";
 include('partial/head.php');

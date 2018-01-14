@@ -9,8 +9,8 @@ include('partial/header.php');
   <div class="container">
 
     <?php
-    $path = "db";
-    $file = $path."/categories";
+
+	$file = "db/categories";
     $unserialized = unserialize(file_get_contents($file));
     ?>
 
