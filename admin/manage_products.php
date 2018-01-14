@@ -15,23 +15,15 @@ function delete(array $data) {
 }
 
 function update(array $data) {
-	// $path = "../private";
-	// $file = $path."/passwd";
-	// $db = get_db($path, $file);
-// print_r($data);
 	$file = "../db/serialized";
 	$db = unserialize(file_get_contents($file));
-	// if ($data['mail'] != $data['oldmail']
-	// 	&& array_search($data['mail'], array_column($db, 'mail')) !== false)
-	// {
-	// 	$_SESSION['mail_already_registered'] = "ON";
-	// 	header('Location: ../admin_modif_user.php');
-	// 	exit();
-	// }
-	$key = array_search($data['oldmail'], array_column($db, 'mail'));
-	$db[$key]['prenom'] = $data['prenom'];
-	$db[$key]['nom'] = $data['nom'];
-	$db[$key]['mail'] = $data['mail'];
+	$db[$data[id]][1] = $data['nom'];
+	$db[$data[id]][2] = $data['location'];
+	$db[$data[id]][3] = $data['taille'];
+	$db[$data[id]][4] = $data['poids'];
+	$db[$data[id]][5] = $data['couleur'];
+	$db[$data[id]][6] = $data['img_file'];
+	$db[$data[id]][7] = $data['prix'];
 	file_put_contents($file, serialize($db));
 	header('Location: ../admin_products.php');
 	exit();
