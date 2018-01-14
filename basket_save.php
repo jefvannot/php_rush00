@@ -2,6 +2,7 @@
 session_start();
 $css_path = "./";
 $css_file = "basket.css";
+date_default_timezone_set('UTC');
 
 $db_planets = unserialize(file_get_contents("db/serialized"));
 
@@ -11,7 +12,7 @@ if (isset($_SESSION['logged_on_user']) && !empty($_SESSION['logged_on_user']) &&
 {
 	$file = "./db/orders";
 	$db_orders = unserialize(file_get_contents($file));
-	$new[1] = date("j-n-Y H:i:s");
+	$new[1] = strftime("%d %B %Y %H:%M");
 	$new[2] = $_SESSION['logged_on_user'];
 	$new[3] = $_SESSION['basket'];
 	$db_orders[] = $new;

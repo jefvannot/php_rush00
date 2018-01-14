@@ -28,9 +28,7 @@
 	border-left: 1px #d5d5d5 solid;
 	border-right: 1px #d5d5d5 solid;
 }
-.elem p {
-	flex: 1;
-}
+
 .elem img {
 	height: 100%;
 }
@@ -41,10 +39,15 @@ button:focus {
 	outline: 0 !important;
 }
 
+.cat p, .product p {
+	flex: 1;
+}
 
 .user-top, .user {
 	width: 400px;
 }
+
+
 .product-top, .product {
 	width: 70vw;
 }
@@ -52,8 +55,11 @@ button:focus {
 	font-size: 0.9em;
 	padding: 0 5px;
 }
+
+
 .cat-first {
 	width: 175px;
+	padding: 0;
 }
 .cat {
 	width: 111px;
@@ -67,9 +73,6 @@ button:focus {
 	flex: 1;
 	/*margin: 0 45px;*/
 }
-.cat-first {
-	padding: 0;
-}
 .cat-content form {
 	margin: 0 !important;
 	/*height: 26px;*/
@@ -80,10 +83,38 @@ button:focus {
 }
 .cat-content h5 {
 	margin: 0.3em 0;
-    text-align: left;
-    font-size: 0.8em;
+	text-align: left;
+	font-size: 0.8em;
 }
 .cat-content input {
 	margin: 5px 0;
 	width: 177px;
 }
+
+
+
+.order-first {
+	width: 175px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+.order {
+	width: 111px;
+	height: 35px;
+}
+.user-orders .order-list {
+	width: 85vw;
+	display: flex;
+	flex: wr;
+	flex-wrap: wrap;
+}
+.user-orders .one-order {
+	margin: 20px;
+}
+.user-orders .order {
+	justify-content: space-between;
+}
+
+
+
