@@ -23,8 +23,9 @@ include('partial/header.php');
 					echo "<div class='elem-row user-row'>";
 					echo "<div class='elem user'>";
 					echo "<p>".$elem[1]."</p>";
+					echo "<p>";
 					foreach($elem[3] as $name => $qte)
-						echo "<p>".$name.":".$qte."</p>";
+						echo $name.":".$qte."<br>";
 					echo "</p>";
 					echo "</div>";
 					echo "</div>";
