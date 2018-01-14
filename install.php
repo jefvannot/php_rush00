@@ -51,7 +51,7 @@ if (!file_exists($file_categories))
 
 
 /* cree la db orders */
-$file_orders = "db/categories";
+$file_orders = "db/orders";
 if (!file_exists($file_orders))
 	file_put_contents($file_orders, NULL);
 ?>
