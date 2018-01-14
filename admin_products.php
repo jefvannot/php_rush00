@@ -10,7 +10,7 @@ include('partial/header.php');
 <body>
 	<div class="container">
 		<div>
-			<h4>Liste des utilisateurs</h4>
+			<h4>Liste des produits</h4>
 			<div>
 				<div class="elem product first-row">
 					<p>Nom</p>
@@ -23,7 +23,6 @@ include('partial/header.php');
 				</div>
 				<?php
 				$db = unserialize(file_get_contents("db/serialized"));
-				// print_r($db);
 				foreach ($db as $v) {
 					echo "<div class='elem-row product-row'>";
 					echo "<div class='elem product'>";
@@ -52,7 +51,7 @@ include('partial/header.php');
 
 				<div class="add">
 					<form action="admin_create_product.php" method="post">
-						<button type="submit" class="btn btn-default">ajouter un compte</button>
+						<button type="submit" class="btn btn-default">ajouter un produit</button>
 					</form>
 				</div>
 
