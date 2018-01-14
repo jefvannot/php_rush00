@@ -8,14 +8,14 @@ include('partial/header.php');
   <div class="container">
 
     <?php
-    $path = "private";
+    $path = "db";
     $file = $path."/categories";
     $unserialized = unserialize(file_get_contents($file));
     ?>
 
     <div class="filter_box">
       <h2>Quelle planète choisir ?</h2>
-      <form method='post' action='products2.php'>
+      <form method='post' action='products-sorted.php'>
         <div class="categories">
            <?php
            foreach ($unserialized as $k => $v)
@@ -49,17 +49,17 @@ include('partial/header.php');
         // print_r ($db_planets);
         foreach ($db_planets as $planet)
         { 
-          if(isset($_POST[$planet[4]]))
+          if(isset($_POST[$planet[3]]))
           {
-            if(isset($_POST[$planet[6]]))
+            if(isset($_POST[$planet[5]]))
               //NOTE : Voire note d'au dessus.
             {
-              if(isset($_POST[$planet[3]]))
+              if(isset($_POST[$planet[2]]))
               {
                 echo "<a href='show_planet.php?planet=".$planet[1]."' title='".$planet[1]."'>";
                 echo "<div class='card'>";
                 echo "<div class='title'><h2>".$planet[1]."</h2></div>";
-                echo "<img src='".$planet[7]."'>";
+                echo "<img src='".$planet[6]."'>";
                 echo "</div>";
                 echo "</a>";
               }
