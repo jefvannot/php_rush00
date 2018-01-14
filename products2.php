@@ -52,14 +52,17 @@ include('partial/header.php');
           if(isset($_POST[$planet[4]]))
           {
             if(isset($_POST[$planet[6]]))
-              //NOTE : Voire note d'au dessus. Evidemment le probleme se répercute ici (il faudrait un troisième if mais je l'ai temporairement enlevé).
+              //NOTE : Voire note d'au dessus.
             {
-              echo "<a href='show_planet.php?planet=".$planet[1]."' title='".$planet[1]."'>";
-              echo "<div class='card'>";
-              echo "<div class='title'><h2>".$planet[1]."</h2></div>";
-              echo "<img src='".$planet[7]."'>";
-              echo "</div>";
-              echo "</a>";
+              if(isset($_POST[$planet[3]]))
+              {
+                echo "<a href='show_planet.php?planet=".$planet[1]."' title='".$planet[1]."'>";
+                echo "<div class='card'>";
+                echo "<div class='title'><h2>".$planet[1]."</h2></div>";
+                echo "<img src='".$planet[7]."'>";
+                echo "</div>";
+                echo "</a>";
+              }
             }
           }
         }
