@@ -3,6 +3,7 @@ session_start();
 include("install.php");
 
 $css_path = "./";
+$css_file = "index_about_contact.css";
 include('partial/head.php');
 include('partial/header.php');
 ?>
@@ -32,12 +33,14 @@ include('partial/header.php');
 	$_SESSION['flag_user_deleted'] = NULL;
 	}
 	?>
-    <div class="container">
+    <div class="container index">
    
-
+    	<a href="products.php">
 		<div class="row">
-		        trucs a vendre
+		    <h1>Il y a tant de mondes à posséder</h1>
+		    <h2>Nous avons tant à vous offrir</h2>
 		</div>
+		</a>
     </div>
 
     <?php include('partial/footer.php'); ?>

@@ -15,7 +15,7 @@ include('partial/header.php');
     ?>
 
     <div class="filter_box">
-      <h2>Quelle planète choisir ?</h2>
+      <h2>Achetez la planète qui vous ressemble</h2>
       <form method='post' action='products-sorted.php'>
         <div class="categories">
            <?php
@@ -31,7 +31,7 @@ include('partial/header.php');
           } 
         ?>
         </div>
-        <input type='submit' name = 'submit' value='Filtrer' />
+        <button type='submit' name='submit' value='Filtrer'/>Filtrer</button>
       </form>
     </div>
 
